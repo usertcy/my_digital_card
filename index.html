@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--设置网页标题的标签-->
+    <title>我的个人名片</title>
+    <!--HTML 中的一个标签，用于将外部的 CSS文件引入到 HTML 文档中
+    rel="stylesheet" 表明关联的外部资源是样式表，href="style.css" 指定了 CSS 文件的路径和文件名-->
+    <link rel="stylesheet" href="style.css">
+    <!-- 使用Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!--主题切换按钮-->
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+
+        <!--名片卡片-->
+        <div class="card">
+
+            <!--头像和基本信息-->
+            <div class="profile">
+                <!--alt是图片的替代文本属性,id唯一，class是图片的替代文本属性-->
+                <img src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Brooklynn" alt="我的头像" class="avatar"
+                    id="avatar">
+
+                <!--???????????????????????????????????????///-->
+                <h1 id="name">请设置你的头像</h1>
+                <p class="title" id="title">前端开发者</p>
+            </div>
+
+            <!--技能部分-->
+            <div class="skills">
+
+                <h2>我的技能</h2>
+
+                <div class="skill">
+                    <span>HTML/CSS</span>
+                    <div class="progress-bar">
+                        <div class="progress html-progress" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="progress-bar">
+                        <div class="progress html-progress" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>C++</span>
+                    <div class="progress-bar">
+                        <div class="progress html-progress" data-width="95%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--联系信息-->
+            <div class="contact">
+                <h2>联系我</h2>
+
+                <div class="social-links">
+                    <!--href="#" 表示一个「空链接」或「占位链接」。-->
+                    <a href="https://github.com/usertcy" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="mailto:12345678@qq.com" class="social-link" title="邮箱">
+                        <i class="fab fa-envelope"></i>
+                    </a>
+
+                    <a href="#" class="social-link" title="知乎">
+                        <i class="fab fa-zhihu"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--告诉浏览器这里要加载和执行 JS 代码 src是 JS 文件路径-->
+    <script src="script.js"></script>
+</body>
+
+</html>

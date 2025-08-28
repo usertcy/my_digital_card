@@ -1,0 +1,205 @@
+/*定义CSS变量是 CSS 里的一个选择器，表示文档的根元素
+CSS 变量在 :root 里定义后，就是全局变量，整个页面的所有元素都能用。*/
+:root {
+    /*变量名前面必须加两个短横线 --，这是 CSS 语法规定，变量名是你自己命名的*/
+    --primary-color:blue;
+    --bg-color:white;
+    --text-color:#334155;
+    --card-bg:#ffffff;
+    /*x轴偏移量 y轴偏移量 模糊半径 阴影颜色透明度*/
+    --shadow:0 10px 25px rgba(0,0,0,0.5);
+    --skill-bg: #e2e8f0;/*进度条背景*/
+    
+}
+
+/* 暗黑主题的变量   []是一个属性选择器，意思是选中页面上有 data-theme="dark" 这个属性的元素 
+页面就会自动用暗黑主题 */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --bg-color: rgb(18, 18, 18); 
+    --text-color: #cbd5e1;
+    --card-bg: black;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --skill-bg: #334155;
+}
+
+/* 基础样式  *是 CSS 的“通配选择器”，意思是选中页面上的所有元素。*/
+*{
+    /*都是属性 外边距  内边距*/
+    margin:0;
+    padding:0;
+    box-sizing:border-box; /* 让宽度计算更直观，布局更可控 */
+}
+
+/*body 是 CSS 选择器，表示网页的主体部分*/
+body{
+    /*设置页面文字的字体  浏览器会按顺序找能用的字体，
+    前面的没有就用后面的，最后 sans-serif 是通用无衬线字体。*/
+    font-family:'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*用 var() 是为了用你在 :root 或主题里定义的 CSS 变量，这样方便统一管理和切换主题。*/
+    background-color:var(--bg-color);
+    /*设置文字颜色，也用变量*/
+    color:var(--text-color);
+    /*设置行高*/
+    line-height: 1.6;
+    /*给页面内容加 20 像素的内边距。*/
+    padding: 20px;
+    /*页面最小高度为视口高度*/
+    min-height:100vh;
+    /*使用弹性布局（flex），方便居中内容。*/
+    display: flex;
+    /*水平居中内容。*/
+    justify-content: center;
+    /*垂直居中内容*/
+    align-items: center;
+    /*所有属性变化时动画过渡 0.3 秒，先快后慢。*/
+    transition: all 0.3s ease;
+}
+
+/*.container 是一个类选择器，表示页面中 class="container" 的元素*/
+.container{
+    /*让容器宽度占满父元素的全部宽度。*/
+    width:100%;
+    max-width:400px;
+}
+
+/* 主题切换按钮 也是类选择器 */
+.theme-btn{
+    /*让按钮绝对定位，可以自由放在页面的某个位置。
+    fixed 是“钉死”在屏幕上，页面怎么滚动都不动。
+    absolute 是“脱离”布局，精确放在你指定的位置。
+    relative 的盒子只是偏移了一点，但原来的位置还在。*/
+    position: absolute;
+    top:20px;
+    right:20px;
+    background: var(--card-bg);
+    /*没有边框。*/
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    /* 是用来设置鼠标悬停在元素上时显示的光标样式  鼠标悬停时显示小手图标，表示可点击。*/
+    cursor: pointer;
+    /*按钮里的图标或文字大小*/
+    font-size: 1.2rem;
+    box-shadow: var(--shadow);
+    /*按钮变形时动画过渡 0.3 秒，先快后慢。*/
+    transition: transform 0.3s ease;
+}
+
+/*当鼠标悬停在 class="theme-btn" 的按钮上时，让按钮旋转 30 度。
+hover 是伪类选择器，表示鼠标悬停状态
+ 是让元素顺时针旋转 30 度。*/
+.theme-btn:hover{
+    transform:rotate(30deg);
+}
+
+/* 名片卡片样式 */
+.card{
+    background: var(--card-bg);
+    border-radius: 15%;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.profile {
+    /*选中 class="profile" 的元素在它的底部加上 2 个 rem 的外边距。*/
+    margin-bottom: 2rem;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /*是用在图片或视频上的 CSS 属性。
+    让图片在固定的宽高盒子里“铺满”，多余的部分会被裁剪，不会变形。*/
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.title {
+    color: var(--text-color);
+    /*是用来设置元素的透明度的属性。*/
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.skills {
+    /* 的意思是设置元素的上下外边距为 2rem，左右外边距为 0。*/
+    margin: 2rem 0;
+}
+
+.skill {
+    margin: 1rem 0;
+    /* 是用来设置文本的对齐方式的属性。*/
+    text-align: left;
+}
+
+.skills .progress-bar {
+    background: var(--skill-bg); /* 使用正确的变量 */
+    border-radius: 10px;
+    height: 8px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.skills .progress-bar .progress {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+/* 社交链接样式 */
+.social-links{
+    display:flex;
+    justify-content: center;
+    gap:1rem;
+    /*是用来设置弹性布局（flex）或网格布局（grid）中子元素之间的间距的属性。*/
+    margin-top:1rem;
+}
+
+.social-link{
+    /*让元素表现为“内联弹性盒子”。它像 inline 一样在一行显示，
+    但里面的内容可以用弹性布局（flex）排列，方便居中和对齐。*/
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width:45px;
+    height:45px;
+    background: var(--primary-color);
+    color:white;
+    border-radius: 50%;
+    /*去掉文本的装饰效果*/
+    text-decoration: none;
+    font-size:1.2rem;
+    transition:all 0.3s ease;
+}
+
+.social-link:hover{
+    /*让元素在垂直方向（Y轴）向上移动 3 像素。*/
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(59,130,246,0.4);
+}
+
+/* 响应式设计 */
+/*当屏幕宽度小于或等于 480 像素时，里面的样式才会生效。*/
+@media (max-width: 480px) {
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
