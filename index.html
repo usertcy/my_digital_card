@@ -10,7 +10,6 @@
     <!--HTML 中的一个标签，用于将外部的 CSS文件引入到 HTML 文档中
     rel="stylesheet" 表明关联的外部资源是样式表，href="style.css" 指定了 CSS 文件的路径和文件名-->
     <link rel="stylesheet" href="style.css">
-    <!-- 使用Font Awesome图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -26,13 +25,12 @@
 
             <!--头像和基本信息-->
             <div class="profile">
+                 <!-- 这是一个内联元素，但它独占了一行 -->
                 <!--alt是图片的替代文本属性,id唯一，class是图片的替代文本属性-->
-                <img src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Brooklynn" alt="我的头像" class="avatar"
-                    id="avatar">
-
-                <!--???????????????????????????????????????///-->
+               <img src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Brooklynn" alt="我的头像" class="avatar" id="avatar">
+                    <!-- 这是一个块级元素，默认会换行 -->
                 <h1 id="name">请设置你的头像</h1>
-                <p class="title" id="title">前端开发者</p>
+                <p class="title" id="title">前端</p>
             </div>
 
             <!--技能部分-->
@@ -40,24 +38,27 @@
 
                 <h2>我的技能</h2>
 
+                <!-- 它将技能名称和进度条组合成一个逻辑分组 -->
                 <div class="skill">
                     <span>HTML/CSS</span>
+                    <!-- 它定义了进度条的总长度和外观（例如，一个灰色的长条） -->
                     <div class="progress-bar">
-                        <div class="progress html-progress" data-width="80%"></div>
+                        <!-- 自定义属性 data-width="80%" -->
+                        <div class="progress" data-width="80%"></div>
                     </div>
                 </div>
 
                 <div class="skill">
                     <span>JavaScript</span>
                     <div class="progress-bar">
-                        <div class="progress html-progress" data-width="75%"></div>
+                        <div class="progress" data-width="75%"></div>
                     </div>
                 </div>
 
                 <div class="skill">
                     <span>C++</span>
                     <div class="progress-bar">
-                        <div class="progress html-progress" data-width="95%"></div>
+                        <div class="progress" data-width="95%"></div>
                     </div>
                 </div>
 
@@ -70,15 +71,16 @@
                 <div class="social-links">
                     <!--href="#" 表示一个「空链接」或「占位链接」。-->
                     <a href="https://github.com/usertcy" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
+                        <i class="fas fa-github"></i>
                     </a>
 
-                    <a href="mailto:12345678@qq.com" class="social-link" title="邮箱">
-                        <i class="fab fa-envelope"></i>
+                    <!-- 这里的 <i> 标签是这段代码的一个关键点，它代表 “图标” -->
+                    <a href="#" class="social-link" title="邮箱">
+                        <i class="fas fa-envelope"></i>
                     </a>
 
                     <a href="#" class="social-link" title="知乎">
-                        <i class="fab fa-zhihu"></i>
+                        <i class="fas fa-zhihu"></i>
                     </a>
 
                 </div>
